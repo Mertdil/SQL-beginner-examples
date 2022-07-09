@@ -22,4 +22,8 @@ select round(avg(rental_rate),2) from film;
 select count(title) from film where title like 'C%'; 
 select max(length) from film where rental_rate=0.99; select count(distinct(replacement_cost)) from film where length>150;
 
-
+--ödev 7
+select rating from film group by rating;
+select replacement_cost,count(*) from film group by replacement_cost having count(*)>50;
+select store_id,count(*) from customer group by store_id;
+select country_id as id,count(city) as maxcity from city group by country_id order by count(city) desc limit 1 ;
