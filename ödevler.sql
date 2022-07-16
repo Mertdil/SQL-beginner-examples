@@ -86,3 +86,38 @@ update employee set  name='xxxx', birthday='01.01.2022', email='not found' where
 
 delete from employee where id<=5;
 
+--ödev 9
+select city,country from city join country on city.country_id=country.country_id
+
+select payment_id,first_name,last_name from payment join customer on payment.customer_id=customer.customer_id
+
+select rental_id,first_name,last_name from customer join rental on customer.store_id=rental.rental_id
+
+--ödev 10
+select city,country from city  left join country on city.country_id=country.country_id
+
+select payment_id,first_name,last_name from payment   join customer on payment.customer_id=customer.customer_id
+
+select rental_id,first_name,last_name from customer full join rental on customer.store_id=rental.rental_id
+
+
+-- ödev 11
+(SELECT first_name  FROM actor)union  ( SELECT first_name FROM customer);
+
+(SELECT first_name  FROM actor) intersect ( SELECT first_name FROM customer);
+
+(SELECT first_name  FROM actor)except ( SELECT first_name FROM customer);
+
+(SELECT first_name  FROM actor)union all  ( SELECT first_name FROM customer);
+(SELECT first_name  FROM actor) intersect ( SELECT first_name FROM customer);
+(SELECT first_name  FROM actor)except all ( SELECT first_name FROM customer);
+
+
+--ödev 12
+select count(length) from film where length> (select avg(length) from film) ;
+
+select count(rental_rate) from film where rental_rate= (select max(rental_rate) from film);
+
+select replacement_cost,rental_rate from film order by replacement_cost asc, rental_rate asc ;
+
+select amount from payment where amount > any (select avg(amount)from payment);
