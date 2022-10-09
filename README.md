@@ -1,3 +1,3 @@
-# SQL-beginner-examples
+# SQL-examples
 SQL
 patika üzerindeki alışmalar
